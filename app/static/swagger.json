@@ -1,0 +1,92 @@
+
+  {
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Devalore Assignment Restfull API",
+      "version": "1.0.0",
+      "title": "Devalore Assignment Restfull API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "User Request",
+        "description": "Example API for requesting and return user requests"
+      }
+    ],
+    "paths": {
+      "/users": {
+        "get": {
+          "tags": [
+            "User Request"
+          ],
+          "summary": "Get users request",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": ""
+              }
+            }
+          }
+        }
+      },
+      "/user/{username}": {
+        "parameters": [
+            {
+              "name": "username",
+              "in": "path",
+              "required": true,
+              "description": "name of the person that we want to match",
+              "type": "string"
+            }
+          ],
+        "get": {
+          "tags": [
+            "User Request"
+          ],
+          "summary": "Get user-name request with a given name",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "username",
+              "required": true,
+              "description": "User Name",
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": ""
+              }
+            },
+            "400": {
+              "description": "Failed. Misunderstood Request."
+            },
+            "404": {
+              "description": "Failed. Book request not found."
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "User Name": {
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
